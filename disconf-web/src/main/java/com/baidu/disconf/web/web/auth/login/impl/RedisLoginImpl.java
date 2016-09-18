@@ -20,8 +20,7 @@ import com.github.knightliao.apollo.utils.web.CookieUtils;
  */
 public class RedisLoginImpl implements RedisLogin {
 
-    @Autowired
-    private RedisCacheManager redisCacheMgr;
+
 
     /**
      * 获取Redis上的User Key
@@ -39,29 +38,8 @@ public class RedisLoginImpl implements RedisLogin {
      */
     @Override
     public Visitor isLogin(HttpServletRequest request) {
-
         String xId = CookieUtils.getCookieValue(request, LoginConstant.XONE_COOKIE_NAME_STRING);
-
-        if (xId != null) {
-
-            Visitor visitor = (Visitor) redisCacheMgr.get(this.getRedisKey(xId));
-
-            //
-            // 登录了
-            //
-            if (visitor != null) {
-
-                return visitor;
-
-            } else {
-
-                return null;
-            }
-
-        } else {
-
-            return null;
-        }
+        return null;
     }
 
     /**
@@ -101,16 +79,6 @@ public class RedisLoginImpl implements RedisLogin {
 
         // 更新Redis数据
         if (xcookieName != null) {
-
-            // 更新
-            if (visitor != null) {
-
-                redisCacheMgr.put(this.getRedisKey(xcookieName), expireTime, visitor);
-            } else {
-
-                // 删除
-                redisCacheMgr.remove(this.getRedisKey(xcookieName));
-            }
         }
     }
 

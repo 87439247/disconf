@@ -346,6 +346,10 @@
                     <include>**/*.*</include>
                 </includes>
             </resource>
+            <!-- 指定环境差异配置的配置文件所在目录 -->
+            <resource>
+                <directory>${basedir}/profile/rd</directory>
+            </resource>
         </resources>
 
         <plugins>
@@ -360,72 +364,21 @@
                 <configuration>
                     <webResources>
                         <resource>
-                            <directory>${project.basedir}/src/main/resources</directory>
-                            <includes>
-                                <include>**/*.*</include>
-                            </includes>
+                            <directory>${project.basedir}/html</directory>
+                            <excludes>
+                                <exclude>tools/</exclude>
+                                <exclude>**/*.py</exclude>
+                                <exclude>**/*.sh</exclude>
+                            </excludes>
+                            <targetPath>/</targetPath>
                         </resource>
                     </webResources>
+
                 </configuration>
             </plugin>
 
         </plugins>
     </build>
-
-    <profiles>
-        <!-- 开发环境默认激活的profile -->
-        <profile>
-            <id>rd</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <resources>
-                    <!-- 指定环境差异配置的配置文件所在目录 -->
-                    <resource>
-                        <directory>${basedir}/profile/rd</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-        <!-- online -->
-        <profile>
-            <id>online</id>
-            <build>
-                <plugins>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <configuration>
-                            <webResources>
-
-                                <resource>
-                                    <directory>${project.build.online.sourceDir}</directory>
-                                    <targetPath>WEB-INF/classes</targetPath>
-                                    <includes>
-                                        <include>**/*.*</include>
-                                    </includes>
-                                </resource>
-
-                                <resource>
-                                    <directory>${project.build.online.sourceDir}</directory>
-                                    <targetPath>/</targetPath>
-                                </resource>
-
-                            </webResources>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
 </project>
 

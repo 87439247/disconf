@@ -35,8 +35,8 @@ public class LoginInterceptor extends WebCommonInterceptor {
     @Resource
     private UserMgr userMgr;
 
-    @Autowired
-    private RedisLogin redisLogin;
+//    @Autowired
+//    private RedisLogin redisLogin;
 
     private List<String> notJsonPathList;
 
@@ -104,27 +104,9 @@ public class LoginInterceptor extends WebCommonInterceptor {
         // session中没有该信息,则从 redis上获取，并更新session的数据
         //
         if (visitor == null) {
-
-            Visitor redisVisitor = redisLogin.isLogin(request);
-
-            //
-            // 有登录信息
-            //
-            if (redisVisitor != null) {
-
-                // 更新session中的登录信息
-                redisLogin.updateSessionVisitor(session, redisVisitor);
-
-            } else {
-
-                // 还是没有登录
-                returnJsonSystemError(request, response, "login.error", ErrorCode.LOGIN_ERROR);
-                return false;
-            }
-        } else {
-
-            // 每次都更新session中的登录信息
-            redisLogin.updateSessionVisitor(session, visitor);
+            // 还是没有登录
+            returnJsonSystemError(request, response, "login.error", ErrorCode.LOGIN_ERROR);
+            return false;
         }
 
         return true;

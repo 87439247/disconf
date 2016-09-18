@@ -82,14 +82,12 @@
 
     <beans profile="db-normal">
         <import resource="classpath*:myconfig/applicationContext-dbconfig.xml"/>
-        <bean id="loginRedisLogin" class="com.baidu.disconf.web.web.auth.login.impl.RedisLoginImpl"/>
         <bean id="roleResourceAspect" class="com.baidu.disconf.web.service.roleres.service.RoleResourceAspect"/>
         <bean id="zookeeperDriver" class="com.baidu.disconf.web.innerapi.zookeeper.impl.ZookeeperDriverImpl"/>
     </beans>
 
     <beans profile="production">
         <import resource="classpath*:myconfig/applicationContext-dbconfig.xml"/>
-        <bean id="loginRedisLogin" class="com.baidu.disconf.web.web.auth.login.impl.RedisLoginImpl"/>
         <bean id="roleResourceAspect" class="com.baidu.disconf.web.service.roleres.service.RoleResourceAspect"/>
         <bean id="zookeeperDriver" class="com.baidu.disconf.web.innerapi.zookeeper.impl.ZookeeperDriverImpl"/>
     </beans>
