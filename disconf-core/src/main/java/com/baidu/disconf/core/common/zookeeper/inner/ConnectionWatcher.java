@@ -25,7 +25,7 @@ public class ConnectionWatcher implements Watcher {
     private static final int SESSION_TIMEOUT = 10000;
 
     // 3秒
-    private static final int CONNECT_TIMEOUT = 3000;
+    private static final int CONNECT_TIMEOUT = 30000;
 
     protected ZooKeeper zk;
     private CountDownLatch connectedSignal = new CountDownLatch(1);
