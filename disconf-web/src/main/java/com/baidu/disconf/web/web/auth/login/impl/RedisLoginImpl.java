@@ -11,7 +11,6 @@ import com.baidu.disconf.web.service.user.dto.Visitor;
 import com.baidu.disconf.web.web.auth.constant.LoginConstant;
 import com.baidu.disconf.web.web.auth.login.RedisLogin;
 import com.baidu.ub.common.commons.ThreadContext;
-import com.github.knightliao.apollo.redis.RedisCacheManager;
 import com.github.knightliao.apollo.utils.web.CookieUtils;
 
 /**
@@ -63,23 +62,6 @@ public class RedisLoginImpl implements RedisLogin {
         // 更新session
         //
         updateSessionVisitor(request.getSession(), visitor);
-
-        //
-        // 更新Redis数据
-        //
-        updateRedisVisitor(visitor, request, expireTime);
-    }
-
-    /**
-     * @param visitor
-     */
-    private void updateRedisVisitor(Visitor visitor, HttpServletRequest request, int expireTime) {
-
-        String xcookieName = CookieUtils.getCookieValue(request, LoginConstant.XONE_COOKIE_NAME_STRING);
-
-        // 更新Redis数据
-        if (xcookieName != null) {
-        }
     }
 
     /**
@@ -94,7 +76,6 @@ public class RedisLoginImpl implements RedisLogin {
             // 更新
             session.setAttribute(UserConstant.USER_KEY, visitor);
         } else {
-
             // 删除
             session.removeAttribute(UserConstant.USER_KEY);
         }
@@ -110,9 +91,6 @@ public class RedisLoginImpl implements RedisLogin {
 
         // 更新session
         updateSessionVisitor(request.getSession(), null);
-
-        // 更新redis
-        updateRedisVisitor(null, request, 0);
     }
 
 }
