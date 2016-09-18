@@ -47,8 +47,8 @@ public class UserController extends BaseController {
     @Autowired
     private SignMgr signMgr;
 
-    @Autowired
-    private RedisLogin redisLogin;
+//    @Autowired
+//    private RedisLogin redisLogin;
 
     /**
      * GET 获取
@@ -102,7 +102,7 @@ public class UserController extends BaseController {
         }
 
         // redis login
-        redisLogin.login(request, user, expireTime);
+        //redisLogin.login(request, user, expireTime);
 
         VisitorVo visitorVo = userMgr.getCurVisitor();
 
@@ -121,7 +121,7 @@ public class UserController extends BaseController {
     @ResponseBody
     public JsonObjectBase signout(HttpServletRequest request) {
 
-        redisLogin.logout(request);
+        //redisLogin.logout(request);
 
         return buildSuccess("ok", "ok");
     }
@@ -145,7 +145,7 @@ public class UserController extends BaseController {
         userMgr.modifyPassword(visitor.getLoginUserId(), passwordModifyForm.getNew_password());
 
         // re login
-        redisLogin.logout(request);
+        //redisLogin.logout(request);
 
         return buildSuccess("修改成功，请重新登录");
     }
