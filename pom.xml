@@ -5,7 +5,7 @@
 
     <groupId>com.baidu.disconf</groupId>
     <artifactId>disconf-base</artifactId>
-    <version>2.6.36</version>
+    <version>${disconf.version}</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -25,11 +25,7 @@
     </licenses>
 
     <properties>
-        <!-- 模块版本号 -->
-        <disconf-core.version>2.6.36</disconf-core.version>
-        <disconf-client.version>2.6.36</disconf-client.version>
-        <disconf-client-spring.version>2.6.36</disconf-client-spring.version>
-
+        <disconf.version>2.6.36-hx</disconf.version>
         <!-- Spring項目配置 -->
         <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -799,29 +795,6 @@
 
         </plugins>
     </reporting>
-
-    <developers>
-        <developer>
-            <name>Liao Qiqi</name>
-            <id>knightliao</id>
-            <email>knightliao@gmail.com</email>
-            <roles>
-                <role>Developer</role>
-            </roles>
-            <timezone>+8</timezone>
-        </developer>
-    </developers>
-
-    <organization>
-        <name>KNIGHT</name>
-        <url>http://www.liaoqiqi.com</url>
-    </organization>
-
-    <scm>
-        <url>scm:git:git@github.com:knightliao/disconf</url>
-        <connection>scm:git:git@github.com:knightliao/disconf</connection>
-        <tag>disconf-base</tag>
-    </scm>
 
     <url>https://github.com/knightliao/disconf</url>
     <name>disconf</name>
