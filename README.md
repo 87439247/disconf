@@ -1,5 +1,10 @@
-Disconf [![Build Status](https://travis-ci.org/knightliao/disconf.svg?branch=master)](https://travis-ci.org/knightliao/disconf) [![Coverage Status](https://coveralls.io/repos/knightliao/disconf/badge.png?branch=master)](https://coveralls.io/r/knightliao/disconf?branch=master)
+Disconf 
 =======
+
+[![Apache License 2](https://img.shields.io/badge/license-ASF2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Build Status](https://travis-ci.org/knightliao/disconf.svg?branch=master)](https://travis-ci.org/knightliao/disconf) 
+[![Coverage Status](https://coveralls.io/repos/knightliao/disconf/badge.png?branch=master)](https://coveralls.io/r/knightliao/disconf?branch=master)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.baidu.disconf/disconf-client/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.baidu.disconf/disconf-client)
 
 Distributed Configuration Management Platform(分布式配置管理平台) 
 
@@ -30,8 +35,7 @@ Distributed Configuration Management Platform(分布式配置管理平台)
 
 - dev(dev branch): 2.6.36
 - master(latest && cooperate && contribute branch)：2.6.36
-- stable(release && stable branch): 2.6.35
-- 在Maven Central Repository里查看 [com.baidu.disconf](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.baidu.disconf%22 )
+- stable(release && stable branch): 2.6.36
 
 ## 功能特点 ##
 
@@ -86,7 +90,14 @@ Disconf的功能特点描述图：
 
 ## 群·联系·讨论
 
+- 赞助作者: http://disconf.readthedocs.io/zh_CN/latest/others/src/sponsor.html
 - disconf技术QQ群: 239203866 
 - disconf技术QQ二群: 280712860
 - 有态度无广告的搜索引擎: https://www.sov5.com
-- 高质量的微信公众号阅读: http://www.100weidu.com
+- 微读 - 高品质阅读: http://www.100weidu.com
+- Python中国社区: http://www.python88.com
+- Disconf - 分布式配置管理平台: http://github.com/knightliao/disconf
+- CanalX - 基于 `Canal` 的数据感知服务框架: http://github.com/knightliao/canalX
+- jutf - Java Unit Test Framework: https://github.com/knightliao/jutf
+- pfrock - A plugin-based server for running fake HTTP services (especially SOA service): https://github.com/knightliao/pfrock
+  
