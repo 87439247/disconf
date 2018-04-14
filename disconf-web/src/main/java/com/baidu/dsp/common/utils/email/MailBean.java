@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 
 import com.baidu.disconf.web.config.ApplicationPropertyConfig;
 
+import java.util.Properties;
+
 /**
  * 邮件发送公共类
  *
@@ -67,6 +69,7 @@ public class MailBean implements InitializingBean {
      */
     @Override
     public void afterPropertiesSet() throws Exception {
+        Properties properties = new Properties();
         mailSender.setHost(emailProperties.getEmailHost());
 
         if (!StringUtils.isEmpty(emailProperties.getEmailUser())) {
@@ -83,9 +86,18 @@ public class MailBean implements InitializingBean {
 
                 Integer port = Integer.parseInt(emailProperties.getEmailPort());
                 mailSender.setPort(port);
+                properties.setProperty("mail.smtp.port", emailProperties.getEmailPort());//设置端口
+                properties.setProperty("mail.smtp.socketFactory.port", emailProperties.getEmailPort());//设置ssl端口
             } catch (Exception e) {
                 LOG.error(e.toString());
             }
         }
+
+        properties.setProperty("mail.smtp.auth", "true");//开启认证
+        properties.setProperty("mail.debug", "true");//启用调试
+        properties.setProperty("mail.smtp.timeout", "3000");//设置链接超时
+        properties.setProperty("mail.smtp.socketFactory.fallback", "false");
+        properties.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        mailSender.setJavaMailProperties(properties);
     }
 }
